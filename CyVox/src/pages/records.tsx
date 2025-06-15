@@ -42,59 +42,46 @@ const mockRecords: AudioRecord[] = [
 
 export function RecordsPage() {
   return (
-    <div className="container py-4 md:py-8">
-      <div className="space-y-4 md:space-y-6">
-        <div>
+    <div className="container py-4 md:py-8 max-w-3xl mx-auto">
+      <div className="space-y-4 md:space-y-6 flex flex-col items-center">
+        <div className="text-center">
           <h1 className="text-2xl md:text-3xl font-bold">Past Records</h1>
           <p className="text-sm md:text-base text-muted-foreground">Manage your uploaded audio files</p>
         </div>
 
-        <div className="grid gap-3 md:gap-4">
+        <div className="w-full space-y-3">
           {mockRecords.map((record) => (
-            <Card key={record.id} className="p-4 md:p-6">
-              <div className="flex items-center justify-between">
-                <div className="space-y-1 flex-1 min-w-0">
-                  <h3 className="font-semibold truncate">{record.name}</h3>
-                  <div className="flex flex-col md:flex-row md:gap-4 text-xs md:text-sm text-muted-foreground">
-                    <span>Duration: {record.duration}</span>
-                    <span className="hidden md:inline">•</span>
-                    <span>Size: {record.size}</span>
-                    <span className="hidden md:inline">•</span>
-                    <span>Uploaded: {record.uploadDate}</span>
+            <Card key={record.id} className="p-4 hover:bg-accent/50 transition-colors">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3 flex-grow text-center sm:text-left">
+                  <Button variant="outline" size="icon" className="h-8 w-8 rounded-full shrink-0">
+                    <Play className="h-4 w-4" />
+                  </Button>
+                  <div className="min-w-0">
+                    <p className="font-medium truncate">{record.name}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {record.duration} • {record.size} • {record.uploadDate}
+                    </p>
                   </div>
                 </div>
                 
-                {/* Desktop view buttons */}
-                <div className="hidden md:flex gap-2">
-                  <Button variant="outline" size="sm">
-                    <Play className="h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" size="sm">
+                <div className="flex items-center gap-2">
+                  <Button variant="ghost" size="icon" className="h-8 w-8">
                     <Download className="h-4 w-4" />
                   </Button>
-                  <Button variant="outline" size="sm">
+                  <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive">
                     <Trash2 className="h-4 w-4" />
                   </Button>
-                </div>
-
-                {/* Mobile view dropdown */}
-                <div className="md:hidden">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="outline" size="sm">
+                      <Button variant="ghost" size="icon" className="h-8 w-8">
                         <MoreVertical className="h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem>
-                        <Play className="h-4 w-4 mr-2" /> Play
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        <Download className="h-4 w-4 mr-2" /> Download
-                      </DropdownMenuItem>
-                      <DropdownMenuItem className="text-destructive">
-                        <Trash2 className="h-4 w-4 mr-2" /> Delete
-                      </DropdownMenuItem>
+                      <DropdownMenuItem>Rename</DropdownMenuItem>
+                      <DropdownMenuItem>Share</DropdownMenuItem>
+                      <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
@@ -102,14 +89,6 @@ export function RecordsPage() {
             </Card>
           ))}
         </div>
-
-        {mockRecords.length === 0 && (
-          <Card className="p-8 md:p-12 text-center">
-            <p className="text-sm md:text-base text-muted-foreground">
-              No recordings found. Upload your first audio file to get started!
-            </p>
-          </Card>
-        )}
       </div>
     </div>
   );
