@@ -6,6 +6,7 @@ import { Navbar } from '@/components/navbar';
 import { HomePage } from '@/pages/home';
 import { RecordsPage } from '@/pages/records';    
 import { ProtectedRoute } from '@/components/protected-routes';
+import { ComplaintFormPage } from '@/pages/complaint-form';
 
 // Import your publishable key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -21,6 +22,7 @@ function AppContent() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/complaint-form" element={<ComplaintFormPage />} />
         <Route 
           path="/records" 
           element={
@@ -49,15 +51,15 @@ function AppContent() {
 
 function App() {
   // If we don't have a valid Clerk key, render without ClerkProvider
-  if (!hasValidClerkKey) {
-    return (
-      <ThemeProvider defaultTheme="system" storageKey="voice-app-theme">
-        <Router>
-          <AppContent />
-        </Router>
-      </ThemeProvider>
-    );
-  }
+  // if (!hasValidClerkKey) {
+  //   return (
+  //     <ThemeProvider defaultTheme="system" storageKey="voice-app-theme">
+  //       <Router>
+  //         <AppContent />
+  //       </Router>
+  //     </ThemeProvider>
+  //   );
+  // }
 
   // If we have a valid key, use ClerkProvider
   return (
