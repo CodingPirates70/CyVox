@@ -6,8 +6,8 @@ export function HeroSection() {
     
     <div className="text-center space-y-8 animate-fade-in">
       <div className="space-y-4">
-        <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-          Voice Upload model
+        <h1 className="text-4xl h-20 md:text-6xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+          CyVox
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
           Upload, record, and report voice transcriptions with ease.
