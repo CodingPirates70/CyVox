@@ -132,12 +132,12 @@ export function VoiceUpload({ onUploadComplete }: VoiceUploadProps) {
     setIsPlaying(false);
   };
 
-  const uploadRecording = () => {
-    if (recordedAudio) {
-      const file = new File([recordedAudio], 'recording.wav', { type: 'audio/wav' });
-      handleFileUpload(file);
-    }
-  };
+  // const uploadRecording = () => {
+  //   if (recordedAudio) {
+  //     const file = new File([recordedAudio], 'recording.wav', { type: 'audio/wav' });
+  //     handleFileUpload(file);
+  //   }
+  // };
 
   return (
     <div className="w-full max-w-2xl mx-auto space-y-6">

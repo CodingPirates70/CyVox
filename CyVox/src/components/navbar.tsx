@@ -11,7 +11,8 @@ export function Navbar() {
     <nav className="fixed top-0 left-1/2 -translate-x-1/2 w-[90%] max-w-3xl z-50 rounded-full border border-white/10 bg-background/50 backdrop-blur-xl shadow-lg before:absolute before:w-[105%] before:h-[130%] before:-z-10 before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:bg-rose-500/5 before:blur-xl before:transform-gpu py-2 mt-4">
       <div className="container flex h-14 items-center justify-between px-6">
         <div className="flex items-center space-x-4">
-          <img src="/CyVox.svg" alt="CyVox" className=''/>
+          <img src="/CyVox.svg" alt="CyVox" className="dark:hidden"/>
+          <img src="/CyVox-w.svg" alt="CyVox" className="hidden dark:block"/>
           <Link to="/">
             <Button
               variant={location.pathname === '/' ? 'default' : 'ghost'}
